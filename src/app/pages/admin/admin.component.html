@@ -1,0 +1,110 @@
+<main class="main-container">
+  <section class="info">
+    <div class="navigation">
+      <p>Practicas Imersuite</p>
+      <mat-icon class="mat-18">chevron_right</mat-icon>
+      <p>Practica 1</p>
+    </div>
+    <div class="userInfo">
+      <div class="userPhoto">
+        <img src="" alt="" class="" />
+      </div>
+      <p class="userName">Paul Sanchez</p>
+      <button class="userLogOut">
+        Salir <mat-icon class="mat-18">logout</mat-icon>
+      </button>
+    </div>
+  </section>
+  <div class="br"></div>
+  <section class="summary-cards">
+    <article class="cardSummary bg-1">
+      <p class="cardSummary-Date">Fecha</p>
+      <span>50 </span>
+      <p class="cardSummary-desc">Descripcion</p>
+    </article>
+    <article class="cardSummary bg-2">
+      <p class="cardSummary-Date">Fecha</p>
+      <span>50 </span>
+      <p class="cardSummary-desc">Descripcion</p>
+    </article>
+    <article class="cardSummary bg-3">
+      <p class="cardSummary-Date">Fecha</p>
+      <span>50 </span>
+      <p class="cardSummary-desc">Descripcion</p>
+    </article>
+  </section>
+  <section class="summaryQuiz">
+    <div class="headerSummaryQuiz">
+      <h2>Resumen del Quiz</h2>
+      <form action="">
+        <mat-form-field class="selectSummaryQuiz" appearance="outline">
+          <mat-select placeholder="Resumen del quiz" [value]="1">
+            <mat-icon class="mat-18" matSuffix>expand_more</mat-icon>
+            <mat-option [value]="1">Selecione Quiz</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="cards-SQ">
+      <div class="cardSQ">
+        <div class="icon bg-1">
+          <mat-icon class="mat-18">group</mat-icon>
+        </div>
+        <div class="infoSQ">
+          <p>Numero de participantes</p>
+          <span>1234</span>
+        </div>
+      </div>
+      <div class="cardSQ">
+        <div class="icon bg-2">
+          <mat-icon class="mat-18">score</mat-icon>
+        </div>
+        <div class="infoSQ">
+          <p>Numero de participantes</p>
+          <span>1234</span>
+        </div>
+      </div>
+      <div class="cardSQ">
+        <div class="icon bg-3">
+          <mat-icon class="mat-18">schedule</mat-icon>
+        </div>
+        <div class="infoSQ">
+          <p>Numero de participantes</p>
+          <span>1234</span>
+        </div>
+      </div>
+      <div class="cardSQ">
+        <div class="icon bg-1">
+          <mat-icon class="mat-18">edit</mat-icon>
+        </div>
+        <div class="infoSQ">
+          <p>Numero de participantes</p>
+          <span>1234</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="charts1">
+    <div class="chart1-filter">
+      <h2>Participante unico</h2>
+      <p>Numero de participantes alrededor del tiempo</p>
+      <div class="form-chart1">
+        <form action="">
+          <label for="start">Fecha inicio</label>
+          <input type="date" name="start" id="" />
+          <label for="end">Fecha Fin</label>
+          <input type="date" name="end" id="" />
+        </form>
+      </div>
+      <button class="chartBtn">Cargar Data</button>
+    </div>
+    <div class="chart1">
+      <canvas
+        baseChart
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [type]="lineChartType"
+      ></canvas>
+    </div>
+  </section>
+</main>

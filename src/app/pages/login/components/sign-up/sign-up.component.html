@@ -1,0 +1,52 @@
+<form class="frm-sing-up" [formGroup]="singUpForm" (ngSubmit)="submit()">
+  <label for="">Nombres y Apellidos</label>
+  <mat-form-field appearance="outline">
+    <input matInput  formControlName="name" />
+    <mat-error *ngIf="name?.errors?.['required']">
+      Nombres y Apellidos son requeridos
+    </mat-error>
+  </mat-form-field>
+  <label for="">Dirección de correo electrónico:</label>
+  <mat-form-field appearance="outline">
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="email?.errors?.['required']">
+      Direccion de correo electronico es requirido
+    </mat-error>
+    <mat-error *ngIf="email?.errors?.['email']">
+      Porfavor, ingrese una direccion de correo electronico valida
+    </mat-error>
+  </mat-form-field>
+  <label for="">Rol:</label>
+  <mat-form-field appearance="outline">
+    <mat-select formControlName='rol'>
+      <mat-option value="8OtdlHvZm3QweJO54N68">Estudiante</mat-option>
+      <mat-option value="TeYbplZwhuz1NZfH03G1">Profesor</mat-option>
+      <mat-option value="r479OgThpJLPGXsOryCW">Administrador</mat-option>
+
+    </mat-select>
+    <mat-error *ngIf="rol?.errors?.['required']">
+      Debe selecionar un rol
+    </mat-error>
+  </mat-form-field>
+  <label for="">Contraseña:</label>
+  <mat-form-field appearance="outline">
+    <input matInput type="password" formControlName="password" />
+    <mat-error *ngIf="password?.errors?.['required']">
+      Contraseña es requerida
+    </mat-error>
+  </mat-form-field>
+  <label for="">Confirme la contraseña:</label>
+  <mat-form-field appearance="outline">
+    <input matInput type="password" formControlName="confirmPassword" />
+    <mat-error *ngIf="confirmPassword?.errors?.['required']">
+      Confirmar contraseña es requerido
+    </mat-error>
+    <mat-error *ngIf="singUpForm.errors?.['passwordsDontMatch']">
+      Las contraseñas deben coincidir
+    </mat-error>
+  </mat-form-field>
+
+  <div class="btn">
+    <button class="btn" type="submit" mat-raised-button color="primary">Registrarse</button>
+  </div>
+</form>
