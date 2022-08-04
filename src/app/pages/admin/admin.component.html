@@ -1,0 +1,426 @@
+<main class="main-container">
+  <section class="info">
+    <div class="navigation">
+      <p>Dashboard Imersuite</p>
+    </div>
+    <div class="userInfo">
+      <div class="userPhoto">
+        <ngx-avatar [name]="userName"></ngx-avatar>
+      </div>
+      <p class="userName">{{ userName | titlecase }}</p>
+      <button class="userLogOut" (click)="exit()">
+        Salir <mat-icon class="mat-18">logout</mat-icon>
+      </button>
+    </div>
+  </section>
+  <div class="br"></div>
+  <section class="summary-cards">
+    <article class="cardSummary bg-1">
+      <div *ngIf="allStudentAux[0]" class="cardInfo">
+        <p class="cardSummary-desc">
+          {{ allStudentAux[0].name | titlecase }}
+          {{ allStudentAux[0].lastName | titlecase }}
+        </p>
+        <span>Promedio: {{ allStudentAux[0]!.average | number: "1.2-2" }}</span>
+        <div class="cardSummary-Date">
+          <p>Test completados: {{ allStudentAux[0].done }}</p>
+          <p>Test sin completar: {{ allStudentAux[0].missing }}</p>
+        </div>
+      </div>
+    </article>
+    <article class="cardSummary bg-2">
+      <div *ngIf="allStudentAux[1]" class="cardInfo">
+        <p class="cardSummary-desc">
+          {{ allStudentAux[1].name | titlecase }}
+          {{ allStudentAux[1].lastName | titlecase }}
+        </p>
+        <span>Promedio: {{ allStudentAux[1]!.average | number: "1.2-2" }}</span>
+        <div class="cardSummary-Date">
+          <p>Test completados: {{ allStudentAux[1].done }}</p>
+          <p>Test sin completar: {{ allStudentAux[1].missing }}</p>
+        </div>
+      </div>
+    </article>
+    <article class="cardSummary bg-3">
+      <div *ngIf="allStudentAux[2]" class="cardInfo">
+        <p class="cardSummary-desc">
+          {{ allStudentAux[2].name | titlecase }}
+          {{ allStudentAux[2].lastName | titlecase }}
+        </p>
+        <span>Promedio: {{ allStudentAux[2]!.average | number: "1.2-2" }}</span>
+        <div class="cardSummary-Date">
+          <p>Test completados: {{ allStudentAux[2].done }}</p>
+          <p>Test sin completar: {{ allStudentAux[2].missing }}</p>
+        </div>
+      </div>
+    </article>
+    <article class="cardSummary bg-4">
+      <div *ngIf="allStudentAux[3]" class="cardInfo">
+        <p class="cardSummary-desc">
+          {{ allStudentAux[3].name | titlecase }}
+          {{ allStudentAux[3].lastName | titlecase }}
+        </p>
+        <span>Promedio: {{ allStudentAux[3]!.average | number: "1.2-2" }}</span>
+        <div class="cardSummary-Date">
+          <p>Test completados: {{ allStudentAux[3].done }}</p>
+          <p>Test sin completar: {{ allStudentAux[3].missing }}</p>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section class="summaryQuiz">
+    <h2>Resumen General</h2>
+    <div class="summaryInfo">
+      <div class="chartSummary">
+        <p>Promedio General:{{ average_general | number: "1.2-2" }}</p>
+        <div class="chartCard">
+          <canvas
+            *ngIf="load_pie"
+            baseChart
+            [data]="pieChartData"
+            [type]="pieChartType"
+            [options]="pieChartOptions"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="chartSummary">
+        <div class="chartCard2">
+          <canvas
+            *ngIf="load_bar"
+            baseChart
+            [data]="barChartData"
+            [options]="barChartOptions"
+            [type]="barChartType"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+    <h2>Resumen por Unidad</h2>
+    <div class="summaryCharts">
+      <div class="charPieUnity">
+        <div class="infoChart">
+          <h3>Unidad 1</h3>
+          <p>Promedio General:{{ averageQualify[0] | number: "1.2-2" }}</p>
+        </div>
+        <div class="chartUnity">
+          <canvas
+            *ngIf="load_pie2"
+            baseChart
+            [data]="pieChartData2"
+            [type]="pieChartType2"
+            [options]="pieChartOptions2"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="charPieUnity">
+        <div class="infoChart">
+          <h3>Unidad 2</h3>
+          <p>Promedio General:{{ averageQualify[1] | number: "1.2-2" }}</p>
+        </div>
+        <div class="chartUnity">
+          <canvas
+            *ngIf="load_pie3"
+            baseChart
+            [data]="pieChartData3"
+            [type]="pieChartType3"
+            [options]="pieChartOptions3"
+          >
+          </canvas>
+        </div>
+      </div>
+      <div class="charPieUnity">
+        <div class="infoChart">
+          <h3>Unidad 3</h3>
+          <p>Promedio General:{{ averageQualify[2] | number: "1.2-2" }}</p>
+        </div>
+        <div class="chartUnity">
+          <canvas
+            *ngIf="load_pie"
+            baseChart
+            [data]="pieChartData4"
+            [type]="pieChartType4"
+            [options]="pieChartOptions4"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="charts1">
+    <div class="chart2Info">
+      <form class="selectQuiz" action="">
+        <mat-form-field class="selectSummaryQuiz" appearance="outline">
+          <mat-select
+            [formControl]="selectedQuiz"
+            placeholder="Selecione una unidad"
+            (selectionChange)="changeSumary(selectedQuiz.value)"
+          >
+            <mat-icon class="mat-18" matSuffix>expand_more</mat-icon>
+            <mat-option
+              *ngFor="let test of allTest"
+              [value]="allTest.indexOf(test)"
+              >Unidad {{ test.unity }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <div class="inforcharts">
+        <h3>Unidad:{{ selectedUnity }}</h3>
+        <h3>Tiempo promedio:{{ avg_time_unity | number: "1.0-0" }}minutos</h3>
+      </div>
+    </div>
+    <div class="chart2charts">
+      <article class="charts">
+        <div class="chartPie">
+          <div class="cpie">
+            <canvas
+              *ngIf="load_pie5"
+              baseChart
+              [data]="pieChartData5"
+              [type]="pieChartType5"
+              [options]="pieChartOptions5"
+            >
+            </canvas>
+            <p>{{ q1 }}</p>
+          </div>
+        </div>
+        <div class="chartPie">
+          <div class="cpie">
+            <canvas
+              *ngIf="load_pie6"
+              baseChart
+              [data]="pieChartData6"
+              [type]="pieChartType6"
+              [options]="pieChartOptions6"
+            >
+            </canvas>
+            <p>{{ q2 }}</p>
+          </div>
+        </div>
+        <div class="chartPie">
+          <div class="cpie">
+            <canvas
+              *ngIf="load_pie7"
+              baseChart
+              [data]="pieChartData7"
+              [type]="pieChartType7"
+              [options]="pieChartOptions7"
+            >
+            </canvas>
+            <p>{{ q3 }}</p>
+          </div>
+        </div>
+        <div class="chartPie">
+          <div class="cpie">
+            <canvas
+              *ngIf="load_pie8"
+              baseChart
+              [data]="pieChartData8"
+              [type]="pieChartType8"
+              [options]="pieChartOptions8"
+            >
+            </canvas>
+            <p>{{ q4 }}</p>
+          </div>
+        </div>
+        <div class="chartPie">
+          <div class="cpie">
+            <canvas
+              *ngIf="load_pie9"
+              baseChart
+              [data]="pieChartData9"
+              [type]="pieChartType9"
+              [options]="pieChartOptions9"
+            >
+            </canvas>
+            <p>{{ q5 }}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="charts1">
+    <div class="chart1-filter">
+      <div class="form-chart1">
+        <form action="">
+          <div class="filter1">
+            <label for="start">Unidad</label>
+            <mat-form-field class="selectfilter" appearance="outline">
+              <mat-select
+                [formControl]="selectedUnity1"
+                placeholder="Seleccione la Unidad"
+                (selectionChange)="changeUnit(selectedUnity1.value)"
+              >
+                <mat-icon class="mat-18" matSuffix>expand_more</mat-icon>
+                <mat-option
+                  *ngFor="let test of allTest"
+                  [value]="allTest.indexOf(test)"
+                  >Unidad {{ test.unity }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <label for="end">Pregunta</label>
+            <mat-form-field class="selectfilter" appearance="outline">
+              <mat-select
+                [formControl]="selectedQuestion1"
+                placeholder="Seleccione la Pregunta"
+                (selectionChange)="changeQuestion(selectedQuestion1.value)"
+              >
+                <mat-icon class="mat-18" matSuffix>expand_more</mat-icon>
+                <mat-option
+                  *ngFor="let question of auxQuestion"
+                  [value]="question"
+                  >{{ question.statement }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="filter2">
+            <label for="end">Estudiante</label>
+            <mat-form-field class="selectfilter" appearance="outline">
+              <mat-select
+                [formControl]="selectedStudent1"
+                placeholder="Seleccione el Estudiante"
+                (selectionChange)="changeStudent(selectedStudent1.value)"
+              >
+                <mat-icon class="mat-18" matSuffix>expand_more</mat-icon>
+                <mat-option
+                  *ngFor="let student of allStudent"
+                  [value]="student.mail"
+                  >{{ student.mail }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="chart1">
+      <div *ngIf="load_line" class="cardChart">
+        <canvas
+          baseChart
+          [data]="lineChartData"
+          [type]="lineChartType"
+          [options]="lineChartOptions"
+        >
+        </canvas>
+      </div>
+      <div *ngIf="load_question" class="cardChart card2">
+        <canvas
+          baseChart
+          [data]="HbarChartData"
+          [type]="HbarChartType"
+          [options]="HbarChartOptions"
+        >
+        </canvas>
+      </div>
+      <div *ngIf="load_student" class="cardChart card3">
+        <canvas
+          baseChart
+          [data]="radarChartData"
+          [type]="radarChartType"
+          [options]="radarChartOptions"
+        >
+        </canvas>
+      </div>
+    </div>
+  </section>
+  <section class="table">
+    <table mat-table [dataSource]="dataTabe" class="mat-elevation-z8">
+      <!--Correo-->
+      <ng-container matColumnDef="mail">
+        <th mat-header-cell *matHeaderCellDef>Correo electronico</th>
+        <td mat-cell *matCellDef="let student">{{ student.mail }}</td>
+      </ng-container>
+      <!--Unidad1-->
+      <ng-container matColumnDef="P1.1">
+        <th mat-header-cell *matHeaderCellDef>P1</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity1[0] }}</td>
+      </ng-container>
+      <ng-container class="chart1" matColumnDef="P1.2">
+        <th mat-header-cell *matHeaderCellDef>P2</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity1[1] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P1.3">
+        <th mat-header-cell *matHeaderCellDef>P3</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity1[2] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P1.4">
+        <th mat-header-cell *matHeaderCellDef>P4</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity1[3] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P1.5">
+        <th mat-header-cell *matHeaderCellDef>P5</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity1[4] }}</td>
+      </ng-container>
+      <!--Unidad2-->
+      <ng-container matColumnDef="P2.1">
+        <th mat-header-cell *matHeaderCellDef>P1</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity2[0] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P2.2">
+        <th mat-header-cell *matHeaderCellDef>P2</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity2[1] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P2.3">
+        <th mat-header-cell *matHeaderCellDef>P3</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity2[2] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P2.4">
+        <th mat-header-cell *matHeaderCellDef>P4</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity2[3] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P2.5">
+        <th mat-header-cell *matHeaderCellDef>P5</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity2[4] }}</td>
+      </ng-container>
+      <!--Unidad3-->
+      <ng-container matColumnDef="P3.1">
+        <th mat-header-cell *matHeaderCellDef>P1</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity3[0] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P3.2">
+        <th mat-header-cell *matHeaderCellDef>P2</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity3[1] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P3.3">
+        <th mat-header-cell *matHeaderCellDef>P3</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity3[2] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P3.4">
+        <th mat-header-cell *matHeaderCellDef>P4</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity3[3] }}</td>
+      </ng-container>
+      <ng-container matColumnDef="P3.5">
+        <th mat-header-cell *matHeaderCellDef>P5</th>
+        <td mat-cell *matCellDef="let student">{{ student.unity3[4] }}</td>
+      </ng-container>
+      <!-- Header row first group -->
+      <ng-container matColumnDef="header-row">
+        <th mat-header-cell *matHeaderCellDef [attr.colspan]="1"></th>
+      </ng-container>
+      <ng-container matColumnDef="header-row-unity1">
+        <th mat-header-cell *matHeaderCellDef [attr.colspan]="5">Unidad 1</th>
+      </ng-container>
+      <ng-container matColumnDef="header-row-unity2">
+        <th mat-header-cell *matHeaderCellDef [attr.colspan]="5">Unidad 2</th>
+      </ng-container>
+      <ng-container matColumnDef="header-row-unity3">
+        <th mat-header-cell *matHeaderCellDef [attr.colspan]="5">Unidad 3</th>
+      </ng-container>
+      <tr
+        mat-header-row
+        *matHeaderRowDef="[
+          'header-row',
+          'header-row-unity1',
+          'header-row-unity2',
+          'header-row-unity3'
+        ]"
+      ></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </section>
+</main>

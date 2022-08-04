@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "inmersuite-f6c7e": {
+      "hosting": {
+        "inmersuite": [
+          "inmersuite-f6c7e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "inmersuite-f6c7e"
+  }
+}

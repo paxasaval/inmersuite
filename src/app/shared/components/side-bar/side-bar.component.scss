@@ -1,0 +1,75 @@
+//estilos generales del sideBar
+.sideBar{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary);
+  width: 15vw;
+  height: 100%;
+  color: #F1F1F1;
+  position: absolute;
+}
+
+//estilos de informacion del usuario, incluyendo su imagen
+.userStyle{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  height: 5vh;
+  padding-top: 3vw;
+  padding-left: 4vh;
+}
+.infoUser{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.avatarUser{
+  width: 30%;
+}
+
+.avatarUser img{
+  width: 4em;
+  height: 4em;
+}
+
+//estilos de Botones de menu principal
+.buttonStyles{
+  padding-top: 3vw;
+  text-align: center;
+  align-items: center;
+}
+
+.btnStyle, .btnStyleC{
+  background-color: var(--primary);
+  color: #F1F1F1;
+  text-align: start;
+  align-items: flex-start;
+  width: 10vw;
+  height: 5vh;
+  font-weight: bold;
+  font-size: calc(0.5em + 0.5vw)
+}
+
+.btnStyleC{
+  margin-top: 20vh;
+}
+
+.routerLinkActive{
+  background-color: #F1F1F1;
+  color: var(--primary);
+  text-align: start;
+  align-items: flex-start;
+  width: 10vw;
+  height: 5vh;
+  font-weight: bold;
+  font-size: calc(0.5em + 0.5vw)
+}
+.long-text{
+  max-width: 15ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  padding: 0.5rem;
+}

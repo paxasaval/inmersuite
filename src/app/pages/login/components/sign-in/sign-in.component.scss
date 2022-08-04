@@ -1,0 +1,33 @@
+.frm-sing-in{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: flex-start;
+    width: 75%;
+    margin-left: 14%;
+}
+.frm-sing-in mat-form-field{
+      width: 100%;
+}
+.frm-sing-in label{
+margin-top: 1.7em;
+margin-bottom: 0.5em;
+}
+.frm-sing-in span{
+margin-top: 0.5em;
+}
+
+.btn{
+    margin-top: 1em;
+    width: 100%;
+    color: #ffffff;
+}
+.btn-registre{
+    margin-top: 1.2em;
+    margin-left: 14%;
+    width: 75%;
+    color: #F96A04;
+    border: 2px solid #F96A04;
+    box-sizing: border-box;
+    border-radius: 5px;
+}

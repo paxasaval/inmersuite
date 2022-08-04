@@ -1,0 +1,25 @@
+
+<section class="sideBar">
+  <section class="userStyle">
+      <div class="infoUser">
+          <span class="long-text">{{rol}}</span>
+          <span class="long-text">{{user}}</span>
+      </div>
+      <div class="avatarUser">
+          <img src="../../../assets/usuario.png" alt="">
+      </div>
+  </section>
+  <section class="buttonStyles">
+      <div>
+          <a mat-button class="btnStyle" routerLink="register" routerLinkActive="routerLinkActive">Registro de practicas</a>
+      </div>
+      <div>
+        <a mat-button class="btnStyle" routerLink="summary" routerLinkActive="routerLinkActive">Resumen de practicas</a>
+    </div>
+  </section>
+  <section class="buttonStyles">
+      <div>
+          <a mat-button class="btnStyleC" (click)="exit()">Cerrar Sesión</a>
+      </div>
+  </section>
+</section>

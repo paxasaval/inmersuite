@@ -1,0 +1,21 @@
+.frm-sing-up{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: flex-start;
+    width: 75%;
+    margin-left: 14%;
+}
+
+.frm-sing-up mat-form-field{
+        width: 100%;
+}
+.frm-sing-up label{
+        margin-top: 1.7em;
+        margin-bottom: 0.5em;
+}
+.btn{
+    margin-top: 1.5em;
+    width: 100%;
+    color: #ffffff;
+}

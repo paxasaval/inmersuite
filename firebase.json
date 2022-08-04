@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/inmersuite",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
