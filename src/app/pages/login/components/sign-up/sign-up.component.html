@@ -28,24 +28,25 @@
       Debe selecionar un rol
     </mat-error>
   </mat-form-field>
-  <label for="">Contraseña:</label>
-  <mat-form-field appearance="outline">
-    <input matInput type="password" formControlName="password" />
-    <mat-error *ngIf="password?.errors?.['required']">
-      Contraseña es requerida
-    </mat-error>
-  </mat-form-field>
-  <label for="">Confirme la contraseña:</label>
-  <mat-form-field appearance="outline">
-    <input matInput type="password" formControlName="confirmPassword" />
-    <mat-error *ngIf="confirmPassword?.errors?.['required']">
-      Confirmar contraseña es requerido
-    </mat-error>
-    <mat-error *ngIf="singUpForm.errors?.['passwordsDontMatch']">
-      Las contraseñas deben coincidir
-    </mat-error>
-  </mat-form-field>
-
+  <div class="pass">
+    <label for="">Contraseña:</label>
+    <mat-form-field appearance="outline">
+      <input matInput type="password" formControlName="password" />
+      <mat-error *ngIf="password?.errors?.['required']">
+        Contraseña es requerida
+      </mat-error>
+    </mat-form-field>
+    <label for="">Confirme la contraseña:</label>
+    <mat-form-field appearance="outline">
+      <input matInput type="password" formControlName="confirmPassword" />
+      <mat-error *ngIf="confirmPassword?.errors?.['required']">
+        Confirmar contraseña es requerido
+      </mat-error>
+      <mat-error *ngIf="singUpForm.errors?.['passwordsDontMatch']">
+        Las contraseñas deben coincidir
+      </mat-error>
+    </mat-form-field>
+  </div>
   <div class="btn">
     <button class="btn" type="submit" mat-raised-button color="primary">Registrarse</button>
   </div>

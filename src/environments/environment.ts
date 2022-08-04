@@ -10,6 +10,7 @@ export const environment = {
     apiKey: 'AIzaSyDipxeOXPogdsaxv1XB7Ru6ROm2xNpUINA',
     authDomain: 'inmersuite-f6c7e.firebaseapp.com',
     messagingSenderId: '35616376990',
+    measurementId: "G-6P4CQMMGGT"
   },
   production: false
 };

@@ -7,8 +7,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
-
-
+import { NgChartsModule } from 'ng2-charts';
+import { AvatarModule } from 'ngx-avatar'
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [],
   imports: [
@@ -20,7 +21,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    NgChartsModule,
+    AvatarModule,
+    MatTableModule
   ],
   exports: [
     FormsModule,
@@ -30,7 +34,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    NgChartsModule,
+    AvatarModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

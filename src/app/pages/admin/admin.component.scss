@@ -2,12 +2,12 @@
   width: 100%;
 }
 .main-container{
-  width: 85vw;
+  width: 100vw;
   height: 100vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  background-color: #f6f7fb;
+  background-color: var(--bg-1);
   align-items: center;
 }
 .info{
@@ -50,12 +50,13 @@
   border-radius: 5px;
   min-width: 8em;
   height: 3em;
-  background-color: #fe605d;
+  background-color: var(--accent);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
+  cursor: pointer;
 }
 .userLogOut *{
   padding: 0 0.5em;
@@ -69,9 +70,10 @@
   width: 95%;
   display: flex;
   justify-content: space-around;
+
 }
 .cardSummary{
-  min-width: 30%;
+  min-width: 22%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,18 +83,34 @@
   height: 15vh;
   margin: 1em;
   color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.cardInfo{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .bg-1{
-  background: linear-gradient(145deg, rgba(255,111,102,1) 0%, rgba(255,83,87,1) 100%, rgba(255,255,255,1) 100%);
+  background: radial-gradient(circle, rgba(60,110,113,1) 0%, rgba(56,102,110,1) 100%);
+
 }
 .bg-2{
-  background: linear-gradient(145deg, rgba(109,151,249,1) 0%, rgba(119,75,248,1) 100%, rgba(255,255,255,1) 100%);
+  background: radial-gradient(circle,rgba(56,102,110,1) 0%, rgba(51,94,107,1) 100%);
+
 }
 .bg-3{
-  background: linear-gradient(145deg, rgba(255,210,109,1) 0%, rgba(255,177,129,1) 100%, rgba(255,255,255,1) 100%);
+  background: radial-gradient(circle,rgba(51,94,107,1) 0%, rgba(45,84,103,1) 100%);
 }
-
+.bg-4{
+  background: radial-gradient(circle,rgba(45,84,103,1) 0%, rgba(40,75,99,1) 100%);
+}
 .cardSummary-Date{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.cardSummary-Date p{
+  width: 50%;
   font-size: 1em;
   padding: 0.75em;
 }
@@ -108,41 +126,72 @@
 }
 .summaryQuiz{
   width: 96%;
+  height: 65vh;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  justify-content: space-between;
   border-radius: 8px;
   padding: 1em;
+  margin-bottom: 1.5em;
 }
-.headerSummaryQuiz{
-  padding: 1em;
-  padding-left: 2em;
+.summaryQuiz h2{
+  padding: 0;
+  font-size: 1em;
   display: flex;
+  align-items: center;
+  margin-top: 1.25em;
+  margin-bottom: 0.25em;
 }
-.headerSummaryQuiz h2{
-  font-size: 1.5em;
-  width: 50%;
-}
-.headerSummaryQuiz form{
-  width: 50%;
-  display: flex;
-  padding-right: 2em;
-  justify-content: flex-end;
-}
-.selectSummaryQuiz{
-  width: 50%;
-}
-.cards-SQ{
+
+.summaryInfo{
   width: 100%;
+  min-height: 50%;
+  padding: 1em;
   display: flex;
-  justify-content: center;
-  padding-bottom: 1.5em;
+  justify-content: space-between;
+  align-items: center;
 }
-.cardSQ{
-  width: 23%;
+.chartSummary{
+  height: 100%;
+  width: 47%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg-1);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+.chartSummary p{
+  width: 10%;
+}
+.chartCard{
+  padding: 1em;
+  width: 49%;
+}
+.chartCard2{
+  width: 60%;
+}
+.summaryCharts{
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.charPieUnity{
+  width: 30%;
+  display: flex;
+  padding: 1em;
+  background-color: var(--bg-1);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.charPieUnity canvas{
+  height: 100%;
+}
+.infoChart{
+  width: 50%;
+  align-self: center;
 }
 .icon{
   width: 4em;
@@ -154,42 +203,48 @@
   margin-right: 0.5em;
   color: #fff;
 }
-.infoSQ{
-  width: 85%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-}
-.cardSQ p{
-  color: #7c7c7c;
-  width: 100%;
-  font-size: 1.15em;
-  text-align: left;
-}
-.cardSQ span{
-  width: 100%;
-  font-weight: 600;
-  font-size: 1.15em;
-  text-align: left;
-}
 .charts1{
   width: 96%;
-  height: 50vh;
-  background-color: #fff;
   border-radius: 8px;
   padding: 1em;
   margin-top: 1em;
   display: flex;
   margin-bottom: 1em;
+  justify-content: space-between;
+}
+.chart2Info{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: var(--bg-1);
+  align-items: center;
+  padding: 1em;
+  margin-right: 1em ;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+
+}
+.chart2charts{
+  width: 80%;
+}
+.chartPie{
+  background-color: var(--bg-1);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+
 }
 .chart1-filter{
-  width: 30%;
+  width: 37%;
   height: 100%;
-  padding-left: 1em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: var(--bg-1);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .chart1-filter h2{
   font-size: 1.5em;
@@ -203,14 +258,29 @@
   padding-left: 1.25em;
   color: #7c7c7c;
   margin-bottom: 3em;
-
 }
+
 .form-chart1{
-  height: 60%;
+  height: 100%;
+}
+
+.filter1{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.filter2{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.selectfilter{
+  width: 80%;
+  align-self: center;
+  justify-self: center;
 }
 .form-chart1 form{
   display: flex;
-  flex-direction: column;
   height: 100%;
 }
 form label{
@@ -222,7 +292,7 @@ form label{
 }
 form input{
   height: 3em;
-  width: 60%;
+  width: 100%;
   margin-bottom: 1.5em;
   border: 2px solid #b6b5b5;
   border-radius: 8px;
@@ -232,16 +302,180 @@ form input{
   height: 3em;
   width: 60%;
   border: none;
-  background-color: #fe605d;
+  background-color: var(--accent);
   border-radius: 8px;
   color: #fff;
   font-size: 1.15em;
 }
 .chart1{
-  width: 60%;
+  width: 57%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em;
+  background-color: var(--bg-1);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.cardChart{
+  width: 85%;
+
+}
+.card2{
+  width: 70%;
+}
+.card3{
+  width: 50%;
+}
+.charts2{
+  flex-direction: column;
+}
+.charts{
+  display: flex;
+  width: 100%;
+  height: 30vh;
+  justify-content: space-between;
+}
+.charts .chartPie{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18%;
+}
+.cpie{
+  width: 60%;
+}
+.selectQuiz{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.table{
+  width: 98%;
+  display: flex;
+  margin-top: 2em;
+  justify-content: center;
+  align-items: center;
+}
+.table table{
+  width: 70%;
+}
+.mat-column-header-row-unity1{
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25em;
+  background-color: var(--chart1);
+
+}
+.mat-column-header-row-unity2{
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25em;
+  background-color: var(--chart2);
+
+}
+.mat-column-header-row-unity3{
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25em;
+  background-color: var(--chart3);
+
+}
+.mat-column-P1-1{
+  background-color: var(--chart1);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P1-2{
+  background-color: var(--chart1);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P1-3{
+  background-color: var(--chart1);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P1-4{
+  background-color: var(--chart1);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P1-5{
+  background-color: var(--chart1);
+  text-align: center;
+  width: 5ch;
+
+}
+//
+.mat-column-P2-1{
+  background-color: var(--chart2);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P2-2{
+  background-color: var(--chart2);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P2-3{
+  background-color: var(--chart2);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P2-4{
+  background-color: var(--chart2);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P2-5{
+  background-color: var(--chart2);
+  text-align: center;
+  width: 5ch;
+
+}
+//
+.mat-column-P3-1{
+  background-color: var(--chart3);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P3-2{
+  background-color: var(--chart3);
+  text-align: center;
+  width: 5ch;
+}
+.mat-column-P3-3{
+  background-color: var(--chart3);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P3-4{
+  background-color: var(--chart3);
+  text-align: center;
+  width: 5ch;
+
+}
+.mat-column-P3-5{
+  background-color: var(--chart3);
+  text-align: center;
+  width: 5ch;
+
+}
+th.mat-header-cell{
+  padding-right: 0;
+}
+
+
 

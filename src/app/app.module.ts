@@ -18,6 +18,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { AngularFireModule } from '@angular/fire/compat';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { NgChartsModule } from 'ng2-charts';
+import { TestComponent } from './pages/test/test.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NgChartsModule } from 'ng2-charts';
     SingUpComponent,
     SideBarComponent,
     AdminComponent,
+    TestComponent,
 
   ],
   imports: [

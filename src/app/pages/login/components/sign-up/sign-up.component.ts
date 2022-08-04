@@ -31,7 +31,7 @@ export class SingUpComponent implements OnInit {
       password: new FormControl('',Validators.required),
       confirmPassword: new FormControl('',Validators.required)
     },
-    {validators: passwordMatchValidator()}
+    passwordMatchValidator()
   )
 
   constructor(
